@@ -34,14 +34,13 @@ import { getSession, signOut, useSession } from "next-auth/react";
 import GetDataContext from "../context/Data";
 // import ProjectOwner from "../components/ProjectOwner";
 
-export default function ProjectOwner() {
+export default function Contractor() {
   const [newContractor, setContractor] = useState({
     contractor: "",
     estimatedDuration: "",
     location: "",
     owner: "",
   });
-
   const { isOpen, onOpen, onClose } = useDisclosure();
   const value = useContext(GetDataContext);
   const [constructorSignup, setconstructorSignup] = useState(
@@ -83,10 +82,6 @@ export default function ProjectOwner() {
     // console.log("projectDetails", projectDetails);
     // onClose();
   }
-  const handleRemoveItem = (e) => {
-    const name = e;
-    setprojectDetails(projectDetails.filter((item) => item.name !== name));
-  };
   return (
     <>
       <Modal isOpen={isOpen} onClose={onClose}>
@@ -234,9 +229,7 @@ export default function ProjectOwner() {
               <Tbody>
                 {projectDetails.map((item, index) => (
                   <Tr key={index}>
-                    <Td onClick={(e) => handleRemoveItem(e.target.innerHTML)}>
-                      {item.name}
-                    </Td>
+                    <Td>{item.name}</Td>
                     <Td>{item.owner}</Td>
                     <Td>{item.contractor}</Td>
                     <Td>{item.estimatedDuration}</Td>
