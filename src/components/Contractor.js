@@ -35,37 +35,27 @@ import GetDataContext from "../context/Data";
 // import ProjectOwner from "../components/ProjectOwner";
 
 export default function Contractor() {
-  const [newContractor, setContractor] = useState({
-    contractor: "",
-    estimatedDuration: "",
-    location: "",
-    owner: "",
+  const [newContractor, setContractor] = useState({});
+  const [newWorker, setnewWorker] = useState({
+    name: "",
+    phone: "",
+    address: "",
+    gender: "",
+    aadhar_card: "",
+    TimeSlot: "",
   });
   const { isOpen, onOpen, onClose } = useDisclosure();
   const value = useContext(GetDataContext);
-  const [constructorSignup, setconstructorSignup] = useState(
-    value.data.contractorSignUp
-  );
-  const [projectDetails, setprojectDetails] = useState(
-    value.data.projectDetails
-  );
 
-  console.log(projectDetails);
-  // const handleChange = (e) => {
-  //   const target = e.target;
-  //   const value = target.value;
-  //   const name = target.name;
-  //   setData({
-  //     ...data,
-  //     [name]: value,
-  //   });
-  // };
+  const [Workers, setWorkers] = useState(value.data.workerDetails);
+  console.log(Workers);
+
   function handleChange(e) {
     const target = e.target;
     const value = target.value;
     const name = target.name;
 
-    setContractor({ ...newContractor, [name]: value });
+    setnewWorker({ ...newWorker, [name]: value });
     // console.log("newConstructor", newConstructor);
 
     // console.log("newConstructor", newConstructor);
@@ -74,14 +64,13 @@ export default function Contractor() {
   }
 
   function handleSubmit() {
-    console.log("newConstructor", newContractor);
-    const addData = [newContractor];
-    console.log(addData);
-    setprojectDetails([...projectDetails, newContractor]);
-    // setprojectDetails([ newConstructor]);
-    // console.log("projectDetails", projectDetails);
-    // onClose();
+    setWorkers([...Workers, newWorker]);
   }
+  const handleRemoveItem = (e) => {
+    const name = e;
+    setWorkers(Workers.filter((item) => item.name !== name));
+  };
+  // return "";
   return (
     <>
       <Modal isOpen={isOpen} onClose={onClose}>
@@ -94,22 +83,26 @@ export default function Contractor() {
             {" "}
             {/* <Box w="300px" h="400px" p="30px"> */}
             <FormControl onChange={(e) => handleChange(e)}>
-              <FormLabel htmlFor="name">Contractor Name</FormLabel>
-              <Input name="contractor" mb="10px" type="text" />
               <FormLabel htmlFor="name"> Name</FormLabel>
               <Input name="name" mb="10px" type="text" />
 
-              <FormLabel htmlFor="name">Owner</FormLabel>
-              <Input name="owner" mb="10px" type="text" />
+              <FormLabel htmlFor="name">Phone no</FormLabel>
+              <Input name="phone" mb="10px" type="text" />
 
-              <FormLabel htmlFor="email">ETA Duration </FormLabel>
-              <Input mb="10px" name="estimatedDuration" type="email" />
+              <FormLabel htmlFor="name">Gender</FormLabel>
+              <Input name="gender" mb="10px" type="text" />
 
-              <FormLabel htmlFor="Phone">Loaction</FormLabel>
-              <Input mb="10px" name="location" type="text" />
+              <FormLabel htmlFor="email">Address </FormLabel>
+              <Input mb="10px" name="address" type="email" />
+
+              <FormLabel htmlFor="Phone">Addhar Card</FormLabel>
+              <Input mb="10px" name="aadhar_card" type="text" />
+
+              <FormLabel htmlFor="Phone">Time Slot</FormLabel>
+              <Input mb="10px" name="TimeSlot" type="text" />
               {/* <Button mt={4} colorScheme="teal" type="submit">
-                Submit
-              </Button> */}
+                  Submit
+                </Button> */}
             </FormControl>
             {/* </Box> */}
           </ModalBody>
@@ -155,7 +148,7 @@ export default function Contractor() {
                 variant={"outline"}
                 borderColor="greenBrand.100"
               >
-                Add Project
+                Add Worker
               </Button>
 
               <HStack p="0px 20px 0px 20px" h="40px">
@@ -173,7 +166,7 @@ export default function Contractor() {
             <Box as={Flex} w="90%">
               <Box>
                 <Text fontSize="30px" fontWeight="bold">
-                  Contractor Details
+                  Worker Details
                 </Text>
               </Box>
             </Box>
@@ -184,56 +177,29 @@ export default function Contractor() {
               <Thead>
                 <Tr>
                   <Th>Name</Th>
-                  <Th>Active Projects</Th>
-                  <Th>Project Limit</Th>
+                  <Th>Phone Number</Th>
+                  <Th>Address</Th>
+                  <Th>Gender</Th>
+                  <Th>Adhar Card</Th>
+                  <Th>Time Slot</Th>
                 </Tr>
               </Thead>
               <Tbody>
-                {constructorSignup.map((item, index) => (
+                {Workers.map((item, index) => (
                   <Tr key={index}>
                     <Td
+                      onClick={(e) => handleRemoveItem(e.target.innerHTML)}
                       _hover={{
                         color: "black",
                       }}
                     >
                       {item.name}
                     </Td>
-                    <Td>{item.activeProjects}</Td>
-                    <Td>{item.projectLimit}</Td>
-                  </Tr>
-                ))}
-              </Tbody>
-            </Table>
-          </Container>
-          <Center p="30px 0px 30px 0px">
-            <Box as={Flex} w="90%">
-              <Box>
-                <Text fontSize="30px" fontWeight="bold">
-                  Project Details
-                </Text>
-              </Box>
-            </Box>
-          </Center>
-
-          <Container mt="10px" maxW="90%">
-            <Table variant="simple">
-              <Thead>
-                <Tr>
-                  <Th>Name</Th>
-                  <Th>Owner</Th>
-                  <Th>Contractor</Th>
-                  <Th>Estimated Duration</Th>
-                  <Th>Location</Th>
-                </Tr>
-              </Thead>
-              <Tbody>
-                {projectDetails.map((item, index) => (
-                  <Tr key={index}>
-                    <Td>{item.name}</Td>
-                    <Td>{item.owner}</Td>
-                    <Td>{item.contractor}</Td>
-                    <Td>{item.estimatedDuration}</Td>
-                    <Td>{item.location}</Td>
+                    <Td>{item.phone}</Td>
+                    <Td>{item.address}</Td>
+                    <Td>{item.gender}</Td>
+                    <Td>{item.aadhar_card}</Td>
+                    <Td>{item.TimeSlot}</Td>
                   </Tr>
                 ))}
               </Tbody>
@@ -241,6 +207,8 @@ export default function Contractor() {
           </Container>
         </Box>
       </Box>
+      //{" "}
     </>
+    // );
   );
 }

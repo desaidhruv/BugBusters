@@ -87,6 +87,8 @@ export default function ProjectOwner() {
     const name = e;
     setprojectDetails(projectDetails.filter((item) => item.name !== name));
   };
+
+  function handleEditc() {}
   return (
     <>
       <Modal isOpen={isOpen} onClose={onClose}>
