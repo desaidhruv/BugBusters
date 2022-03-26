@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { getSession, signOut, useSession } from "next-auth/react";
-import CreateDigiCard from "../../components/CreateDigiCard";
+// import CreateDigiCard from "../../components/CreateDigiCard";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import dbConnect from "../../lib/dbConnect";
@@ -15,7 +15,7 @@ const Usercard = ({ Cards }) => {
         <meta name="description" content="Card" />
       </Head>
       <>
-        <CreateDigiCard />
+        {/* <CreateDigiCard />   */}
 
         <button onClick={signOut}>sign out</button>
         {Cards &&
@@ -42,18 +42,18 @@ const Usercard = ({ Cards }) => {
   );
 };
 
-export async function getServerSideProps(context) {
-  const session = await getSession(context);
-  await dbConnect();
-  const cards = await Card.find({
-    card_id: { $eq: session?.user?.id },
-  }).exec();
-  const data = JSON.parse(JSON.stringify(cards));
+// export async function getServerSideProps(context) {
+//   const session = await getSession(context);
+//   await dbConnect();
+//   const cards = await Card.find({
+//     card_id: { $eq: session?.user?.id },
+//   }).exec();
+//   const data = JSON.parse(JSON.stringify(cards));
 
-  return {
-    props: {
-      Cards: data,
-    },
-  };
-}
+//   return {
+//     props: {
+//       Cards: data,
+//     },
+//   };
+// }
 export default Usercard;
