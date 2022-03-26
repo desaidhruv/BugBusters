@@ -114,21 +114,27 @@ const projectDetails = {
     estimatedDuration: "2 years",
     contractor: "Ram",
     owner: "Shyam",
-    location: "Vile Parla",
+    location: "Kandivali",
+    lat: 19.212798316095796,
+    lng: 72.84734145827906,
   },
   Key: "2",
   NestedObject: {
     name: "Aquaria",
     estimatedDuration: "4 years",
     contractor: "Rahul",
-    location: "Goregaon",
+    location: "Andheri",
+    lat: 19.13247026491633,
+    lng: 72.82763733530328,
   },
   Key: "3",
   NestedObject: {
     name: "Mind Space",
     estimatedDuration: "2.5 years",
     contractor: "Raju",
-    location: "Lower Parel",
+    location: "Malad",
+    lat: 19.18946812747762,
+    lng: 72.83453556352265,
   },
   Key: "4",
   NestedObject: {
@@ -136,5 +142,15 @@ const projectDetails = {
     estimatedDuration: "2 years",
     contractor: "Babu Rao",
     location: "Bandra",
+    lat: 19.05911471916633,
+    lng: 72.85084258117763,
   },
 };
+
+export const numberOfContractors = [
+  "Ram",
+  "Shyam",
+  "Raju",
+  "Rahul",
+  "Babu Rao",
+];
