@@ -1,0 +1,140 @@
+const contractorSignUp = {
+  Key: "1",
+  NestedObject: {
+    name: "Ram",
+    email: "ram@gmail.com",
+    phone: "1234567890",
+    password: "1234567890",
+    activeProjects: "8",
+    projectLimit: "10",
+  },
+  Key: "2",
+  NestedObject: {
+    name: "Shyam",
+    email: "Shyam@gmail.com",
+    phone: "1234567890",
+    password: "1234567890",
+    activeProjects: "5",
+    projectLimit: "10",
+  },
+  Key: "3",
+  NestedObject: {
+    name: "Raju",
+    email: "raju@gmail.com",
+    phone: "1234567890",
+    password: "1234567890",
+    activeProjects: "2",
+    projectLimit: "10",
+  },
+  Key: "4",
+  NestedObject: {
+    name: "Rahul",
+    email: "rahul@gmail.com",
+    phone: "1234567890",
+    password: "1234567890",
+    activeProjects: "2",
+    projectLimit: "10",
+  },
+  Key: "5",
+  NestedObject: {
+    name: "Babu Rao",
+    email: "rao@gmail.com",
+    phone: "1234567890",
+    password: "1234567890",
+    activeProjects: "0",
+    projectLimit: "10",
+  },
+};
+
+const OwnerSignUp = {
+  Key: "1",
+  NestedObject: {
+    name: "Ram",
+    email: "ram@gmail.com",
+    phone: "1234567890",
+    password: "1234567890",
+  },
+  Key: "2",
+  NestedObject: {
+    name: "Eshwar",
+    email: "Eshwar@gmail.com",
+    phone: "1234567890",
+    password: "1234567890",
+  },
+  Key: "3",
+  NestedObject: {
+    name: "Ravi",
+    email: "Ravi@gmail.com",
+    phone: "1234567890",
+    password: "1234567890",
+  },
+  Key: "4",
+  NestedObject: {
+    name: "Hrithik",
+    email: "Hrithik@gmail.com",
+    phone: "1234567890",
+    password: "1234567890",
+  },
+};
+
+const workerDetails = {
+  Key: "1",
+  NestedObject: {
+    name: "Veer",
+    phone: "1234567890",
+    aadhar_card: "1234567890",
+    gender: "Male",
+    TimeSlot: "10 hours",
+    address: "Dummy Address",
+  },
+  Key: "2",
+  NestedObject: {
+    name: "Hari",
+    phone: "1234567890",
+    aadhar_card: "1234567890",
+    gender: "Male",
+    TimeSlot: "12 hours",
+    address: "Dummy Address",
+  },
+  Key: "3",
+  NestedObject: {
+    name: "Om",
+    phone: "1234567890",
+    aadhar_card: "1234567890",
+    gender: "Male",
+    TimeSlot: "6 hours",
+    address: "Dummy Address",
+  },
+};
+
+const projectDetails = {
+  Key: "1",
+  NestedObject: {
+    name: "Lodha",
+    estimatedDuration: "2 years",
+    contractor: "Ram",
+    owner: "Shyam",
+    location: "Vile Parla",
+  },
+  Key: "2",
+  NestedObject: {
+    name: "Aquaria",
+    estimatedDuration: "4 years",
+    contractor: "Rahul",
+    location: "Goregaon",
+  },
+  Key: "3",
+  NestedObject: {
+    name: "Mind Space",
+    estimatedDuration: "2.5 years",
+    contractor: "Raju",
+    location: "Lower Parel",
+  },
+  Key: "4",
+  NestedObject: {
+    name: "Trinity",
+    estimatedDuration: "2 years",
+    contractor: "Babu Rao",
+    location: "Bandra",
+  },
+};
