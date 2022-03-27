@@ -43,7 +43,12 @@ export default function ProjectOwner() {
     owner: "",
   });
 
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const {
+    isOpen: isOpenNormal,
+    onOpen: onOpenNormal,
+    onClose: onCloseNormal,
+  } = useDisclosure();
+
   const value = useContext(GetDataContext);
   const [constructorSignup, setconstructorSignup] = useState(
     value.data.contractorSignUp
@@ -92,7 +97,7 @@ export default function ProjectOwner() {
   function handleEditc() {}
   return (
     <>
-      <Modal isOpen={isOpen} onClose={onClose}>
+      <Modal isOpen={isOpenNormal} onClose={onCloseNormal}>
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>Add Project</ModalHeader>
@@ -123,7 +128,7 @@ export default function ProjectOwner() {
           </ModalBody>
 
           <ModalFooter>
-            <Button variant="ghost" mr={3} onClick={onClose}>
+            <Button variant="ghost" mr={3} onClick={onCloseNormal}>
               Close
             </Button>
             <Button onClick={handleSubmit}>Save</Button>
@@ -157,7 +162,7 @@ export default function ProjectOwner() {
             <Spacer />
             <Box display={["none", "none", "flex"]}>
               <Button
-                onClick={onOpen}
+                onClick={onOpenNormal}
                 leftIcon={<AddIcon />}
                 ml={4}
                 variant={"outline"}
@@ -254,19 +259,33 @@ export default function ProjectOwner() {
                   <Th>Contractor</Th>
                   <Th>Estimated Duration</Th>
                   <Th>Location</Th>
+                  <Th>Map</Th>
                 </Tr>
               </Thead>
               <Tbody>
                 {projectDetails.map((item, index) => (
-                  <Tr key={index}>
-                    <Td onClick={(e) => handleRemoveItem(e.target.innerHTML)}>
-                      {item.name}
-                    </Td>
-                    <Td>{item.owner}</Td>
-                    <Td>{item.contractor}</Td>
-                    <Td>{item.estimatedDuration}</Td>
-                    <Td>{item.location}</Td>
-                  </Tr>
+                  <>
+                    <Tr key={index}>
+                      <Td onClick={(e) => handleRemoveItem(e.target.innerHTML)}>
+                        {item.name}
+                      </Td>
+                      <Td>{item.owner}</Td>
+                      <Td>{item.contractor}</Td>
+                      <Td>{item.estimatedDuration}</Td>
+                      <Td>
+                        {/* <Link isExternal href={`https://www.google.com/maps/@${},72.8362768`}></Link> */}
+                        {item.location}
+                      </Td>
+                      <Td>
+                        <Link
+                          isExternal
+                          href={`https://www.google.com/maps/@${item.lat},${item.lng}`}
+                        >
+                          Open in Map
+                        </Link>
+                      </Td>
+                    </Tr>
+                  </>
                 ))}
               </Tbody>
             </Table>
