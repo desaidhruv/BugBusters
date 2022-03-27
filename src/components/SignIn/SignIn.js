@@ -74,7 +74,7 @@ export const SignIn = (props) => {
           email: values.email,
           password: values.password,
         });
-        router.replace("/userscard");
+        router.replace("/");
         setLoading(false);
 
         if (result.error) {
@@ -106,15 +106,15 @@ export const SignIn = (props) => {
           >
             ConstructW
           </Text>
-          {/* <Text
+          <Text
             fontSize={{ base: "36px", md: "40px", lg: "45px" }}
             py={5}
             fontFamily="mono"
             fontWeight="normal"
             color={textColor}
           >
-            Welcome back
-          </Text> */}
+            Project Owner
+          </Text>
           <Flex>
             <Formik
               validationSchema={validationSchema}
@@ -187,17 +187,6 @@ export const SignIn = (props) => {
                     )}
                   </Field>
 
-                  <Text
-                    as={Flex}
-                    justifyContent="end"
-                    color={textColor}
-                    py="30px"
-                    onClick={resetpassword}
-                    fontWeight="semibold"
-                  >
-                    Recovery password
-                  </Text>
-
                   <Center>
                     <Button
                       type="submit"
@@ -205,6 +194,7 @@ export const SignIn = (props) => {
                       fontSize="20px"
                       isLoading={Loading}
                       w={["300px", "300px", "380px"]}
+                      mt="30px"
                     >
                       Sign In
                     </Button>
