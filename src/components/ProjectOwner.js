@@ -27,6 +27,7 @@ import {
   useDisclosure,
   FormControl,
   Input,
+  Link,
 } from "@chakra-ui/react";
 import React, { useContext, useState } from "react";
 
@@ -166,11 +167,33 @@ export default function ProjectOwner() {
               </Button>
 
               <HStack p="0px 20px 0px 20px" h="40px">
-                {/* <Avatar boxSize="35px" /> */}
-
-                <Text onClick={signOut} ursor="pointer" fontWeight="bold">
+                <Link
+                  p="5px"
+                  m={{ base: "10px 0px", lg: "0px 20px" }}
+                  _hover={{ textDecoration: "none" }}
+                  _focus={{ borderBottom: "2px solid #77C208" }}
+                  _active={{ borderBottom: "2px solid #77C208" }}
+                  href="/map"
+                >
+                  Map
+                </Link>
+              </HStack>
+              <HStack p="0px 20px 0px 20px" h="40px">
+                <Link
+                  p="5px"
+                  m={{ base: "10px 0px", lg: "0px 20px" }}
+                  _hover={{ textDecoration: "none" }}
+                  _focus={{ borderBottom: "2px solid #77C208" }}
+                  _active={{ borderBottom: "2px solid #77C208" }}
+                  href="/charts/chart"
+                >
+                  Chart
+                </Link>
+              </HStack>
+              <HStack p="0px 20px 0px 20px" h="40px">
+                <Button onClick={signOut} ursor="pointer" fontWeight="bold">
                   Sign Out
-                </Text>
+                </Button>
               </HStack>
             </Box>
           </Flex>

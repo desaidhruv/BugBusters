@@ -123,6 +123,7 @@ export const projectDetails = [
     name: "Aquaria",
     estimatedDuration: "4 years",
     contractor: "Rahul",
+    owner: "Ravi",
     location: "Andheri",
     lat: 19.13247026491633,
     lng: 72.82763733530328,
